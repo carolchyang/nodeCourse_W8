@@ -1,0 +1,721 @@
+{
+	"info": {
+		"_postman_id": "5be9ce71-a529-4267-bcdc-12d23a08a6da",
+		"name": "W8 遠端 nodeCourse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9557023"
+	},
+	"item": [
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "取得所有貼文",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/posts",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"posts"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "asc",
+									"disabled": true
+								},
+								{
+									"key": "keyword",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取得指定用戶所有貼文",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/posts/user/:userId",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"posts",
+								"user",
+								":userId"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "asc",
+									"disabled": true
+								},
+								{
+									"key": "keyword",
+									"value": "5",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "62a4fc111573884df26234f5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取得單一貼文",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/post/:postId",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post",
+								":postId"
+							],
+							"variable": [
+								{
+									"key": "postId",
+									"value": "62a579f9c58e97ad02c9a796"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "新增貼文",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"貼文內容3-f\",\r\n    \"image\": \"https://images.unsplash.com/photo-1618988727281-8d54f5d32932?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1177&q=80\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/post",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "刪除單一貼文",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/post/:postId",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post",
+								":postId"
+							],
+							"variable": [
+								{
+									"key": "postId",
+									"value": "62a579f9c58e97ad02c9a796"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "按讚貼文",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/post/:postId/like",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post",
+								":postId",
+								"like"
+							],
+							"variable": [
+								{
+									"key": "postId",
+									"value": "62a59381af18b27296d425a6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取消按讚貼文",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/post/:postId/like",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post",
+								":postId",
+								"like"
+							],
+							"variable": [
+								{
+									"key": "postId",
+									"value": "62a59381af18b27296d425a6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "新增回覆",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"回覆內容2\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/post/:postId/comment",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post",
+								":postId",
+								"comment"
+							],
+							"variable": [
+								{
+									"key": "postId",
+									"value": "62a59381af18b27296d425a6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "刪除回覆",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/post/:commentId/comment",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post",
+								":commentId",
+								"comment"
+							],
+							"variable": [
+								{
+									"key": "commentId",
+									"value": "62a593a8af18b27296d425bc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "註冊",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"qq\",\r\n    \"email\": \"q@gmail.com\",\r\n    \"password\": \"q12345678\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/user/sign_up",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"sign_up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登入",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"f@gmail.com\",\r\n    \"password\": \"f12345678\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/user/sign_in",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"sign_in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "重設密碼",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"f12345678\",\r\n    \"confirmPassword\": \"f12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/user/updatePassword",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"updatePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取得個人資料",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/user/profile",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新個人資料",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ff\",\r\n    \"gender\": \"male\",\r\n    \"photo\": \"https://images.unsplash.com/photo-1618988727281-8d54f5d32932?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1177&q=80\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/user/profile",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取得個人按讚名單",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/user/getLikeList",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"getLikeList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "新增追蹤",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/user/:userId/follow",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								":userId",
+								"follow"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "62a59340af18b27296d4258e"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取消追蹤",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/user/:userId/follow",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								":userId",
+								"follow"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "62a59340af18b27296d4258e"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取得個人追蹤名單",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/user/getFollowingList",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"getFollowingList"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Upload",
+			"item": [
+				{
+					"name": "上傳圖片",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/user/Downloads/avatar6.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://warm-ridge-65785.herokuapp.com/upload",
+							"protocol": "https",
+							"host": [
+								"warm-ridge-65785",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"upload"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "photo",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
