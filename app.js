@@ -3,6 +3,8 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const cors = require("cors");
+const swaggerUI = require("swagger-ui-express");
+const swaggerFile = require("./swagger-output.json");
 const { resErrorProd, resErrorDev } = require("./service/resErrors");
 
 const usersRouter = require("./routes/users");
@@ -32,6 +34,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(usersRouter);
 app.use(postsRouter);
 app.use(uploadRouter);
+app.use("/api-doc", swaggerUI.serve, swaggerUI.setup(swaggerFile));
 
 // 404 錯誤
 app.use((req, res, next) => {
